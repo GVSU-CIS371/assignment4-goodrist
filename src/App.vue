@@ -75,7 +75,32 @@
       🍺 Make Beverage
     </button>
   </div>
-  <div id="beverage-container" style="margin-top: 20px"></div>
+  <div id="beverage-container" style="margin-top: 20px">
+    <h3 style="color: white; margin-bottom: 10px;">Saved Beverages</h3>
+
+    <div v-if="beverageStore.beverages.length === 0" style="color: white;">
+      No saved beverages yet.
+    </div>
+
+    <ul v-else>
+      <li v-for="bev in beverageStore.beverages" :key="bev.id" style="color: white;">
+        <label>
+          <input
+            type="radio"
+            name="saved-beverages"
+            :value="bev.id"
+            @change="beverageStore.showBeverage(bev)"
+          />
+          {{ bev.name }} —
+          {{ bev.base.name }}, 
+          {{ bev.syrup.name }}, 
+          {{ bev.creamer.name }}
+          ({{ bev.temp }})
+        </label>
+      </li>
+    </ul>
+  </div>
+
 </template>
 
 <script setup lang="ts">
