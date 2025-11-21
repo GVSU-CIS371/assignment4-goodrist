@@ -65,8 +65,15 @@
         </template>
       </li>
     </ul>
-    <input type="text" placeholder="Beverage Name" />
-    <button>🍺 Make Beverage</button>
+    <input
+      type="text"
+      placeholder="Beverage Name"
+      v-model="beverageStore.currentName"
+    />
+
+    <button @click="beverageStore.makeBeverage()">
+      🍺 Make Beverage
+    </button>
   </div>
   <div id="beverage-container" style="margin-top: 20px"></div>
 </template>
