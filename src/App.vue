@@ -75,9 +75,8 @@
       🍺 Make Beverage
     </button>
   </div>
+  
   <div id="beverage-container" style="margin-top: 20px">
-    <h3 style="color: white; margin-bottom: 10px;">Saved Beverages</h3>
-
     <div v-if="beverageStore.beverages.length === 0" style="color: white;">
       No saved beverages yet.
     </div>
@@ -91,15 +90,12 @@
             :value="bev.id"
             @change="beverageStore.showBeverage(bev)"
           />
-          {{ bev.name }} —
-          {{ bev.base.name }}, 
-          {{ bev.syrup.name }}, 
-          {{ bev.creamer.name }}
-          ({{ bev.temp }})
+          {{ bev.name }}
         </label>
       </li>
     </ul>
   </div>
+
 
 </template>
 
